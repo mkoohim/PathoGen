@@ -2,26 +2,6 @@
 
 PathoGen is a diffusion-based model for histopathology image inpainting. It enables training and inference of models that can fill in masked regions of pathology images with realistic tissue patterns.
 
-## 📋 Table of Contents
-
-- [Features](#features)
-- [Installation](#installation)
-- [Dataset Preparation](#dataset-preparation)
-- [Training](#training)
-- [Inference](#inference)
-- [Configuration](#configuration)
-- [Project Structure](#project-structure)
-- [Citation](#citation)
-- [License](#license)
-
-## ✨ Features
-
-- **🎯 Diffusion-based Inpainting**: State-of-the-art diffusion model architecture
-- **⚡ Mixed Precision Training**: Fast training with FP16 support
-- **🔧 Configurable Architecture**: Easily adjust model and training parameters
-- **📊 Multi-GPU Support**: Distributed training across multiple GPUs
-- **💾 Checkpoint Saving**: Automatic saving of attention module weights
-
 ## 🛠️ Installation
 
 ### 1. Clone the repository
@@ -135,17 +115,6 @@ python inference.py \
     --gpu_id 0
 ```
 
-### Options
-
-| Option | Default | Description |
-|--------|---------|-------------|
-| `--config_path` | `configs/config.yaml` | Path to configuration file |
-| `--test_sample_dir` | `test_samples` | Directory with test images |
-| `--output_dir` | `outputs` | Output directory for results |
-| `--checkpoint_epoch` | `99` | Checkpoint epoch to use |
-| `--gpu_id` | `0` | GPU ID (-1 for CPU) |
-| `--sample_name` | `None` | Process specific sample only |
-
 ## ⚙️ Configuration
 
 The main configuration file is `configs/config.yaml`:
@@ -202,9 +171,9 @@ PathoGen/
 If you use PathoGen in your research, please cite:
 
 ```bibtex
-@misc{pathogen2024,
-  title={PathoGen: Histopathology Image Inpainting with Diffusion Models},
-  year={2024}
+@misc{pathogen2025,
+  title={PathoGen: Diffusion-Based Synthesis of Realistic Lesions in Histopathology Images},
+  year={2025}
 }
 ```
 
