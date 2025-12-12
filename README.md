@@ -4,7 +4,7 @@ PathoGen is a diffusion-based model for histopathology image inpainting. It enab
 
 <img width="1385" height="523" alt="fig1" src="https://github.com/user-attachments/assets/0dbd7246-5636-4a60-988b-bbe844bbd7bd" />
 
-## 🛠️ Installation
+## Installation
 
 ### 1. Clone the repository
 
@@ -44,7 +44,7 @@ hf_hub_download(
 "
 ```
 
-## 📁 Dataset Preparation
+## Dataset Preparation
 
 PathoGen expects your dataset to be organized with three files per sample:
 
@@ -64,7 +64,7 @@ data/
 - `{sample_name}_extended_mask.jpg` - Grayscale mask indicating inpainting region
 - `{sample_name}_masked_crop.jpg` - Source image providing the fill pattern
 
-## 🏋️ Training
+## Training
 
 ### Basic training
 
@@ -104,7 +104,7 @@ python train.py
 
 Checkpoints will be saved to `./checkpoints/` by default.
 
-## 🔮 Inference
+## Inference
 
 ### Run inference on test samples
 
@@ -145,7 +145,7 @@ dataset:
   train_split: 0.8
 ```
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 PathoGen/
@@ -168,7 +168,11 @@ PathoGen/
 └── README.md                 # This file
 ```
 
-## 📖 Citation
+## Pretrained Weights
+
+The pretrained attention weights can be found in our [HuggingFace](https://huggingface.co/mkoohim/PathoGen) page.
+
+## Citation
 
 If you use PathoGen in your research, please cite:
 
