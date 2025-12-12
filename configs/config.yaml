@@ -1,0 +1,56 @@
+# PathoGen Configuration
+# Histopathology Image Inpainting with Diffusion Models
+
+# Base paths - UPDATE THESE FOR YOUR ENVIRONMENT
+code_base_path: "."  # Root of the PathoGen directory
+artifacts_path: "./checkpoints"  # Where to save model checkpoints
+dataset_path: "./data"  # Path to your training data
+
+model:
+  # Path to the base diffusion model (stable diffusion inpainting)
+  base_model_path: ${code_base_path}/src/models/base_model
+  
+  # Scheduler configuration
+  scheduler: "ddim"
+  eta: 1.0
+  
+  # Inference settings
+  num_inference_steps: 100
+  num_train_timesteps: 1000
+  
+  # Checkpoint paths
+  trained_att_ckpt: ${artifacts_path}/attention_modules_ep_1.pt
+  save_folder_attn_ckpt: "${artifacts_path}/histo_attention_modules_ep_{epoch}.pt"
+
+training:
+  learning_rate: 1e-5
+  use_dream_in_training: False
+  compile_model: False  # Set to True for PyTorch 2.0+ optimization
+
+trainer_params:
+  accelerator: "gpu"
+  devices: 1  # Number of GPUs to use (set to -1 for all available)
+  strategy: "auto"  # Use "ddp" for multi-GPU training
+  log_every_n_steps: 10
+  max_epochs: 100
+  precision: "16-mixed"  # Enable mixed precision training for faster training
+  accumulate_grad_batches: 1  # Increase for larger effective batch size
+  sync_batchnorm: false  # Set to true for multi-GPU training
+
+dataset:
+  name: "histopathology"
+  data_dir: ${dataset_path}
+  batch_size: 2  # Adjust based on GPU memory
+  image_size: [512, 512]  # Image size (height, width)
+  train_split: 0.8  # 80% for training, 20% for testing
+  num_workers: 4  # Data loading workers
+  pin_memory: true  # Speed up data transfer to GPU
+  persistent_workers: true  # Keep workers alive between epochs
+
+export:
+  path: ${artifacts_path}/exported_model
+
+service_deployment:
+  image_size: [512, 512]
+  random_filename_length: 20
+
