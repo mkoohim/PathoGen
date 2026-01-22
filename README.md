@@ -2,7 +2,7 @@
 
 PathoGen is a diffusion-based model for histopathology image inpainting. It enables training and inference of models that can fill in masked regions of pathology images with realistic tissue patterns.
 
-<img width="1385" height="523" alt="fig1" src="https://github.com/user-attachments/assets/0dbd7246-5636-4a60-988b-bbe844bbd7bd" />
+<img width="1319" height="472" alt="fig1_revised" src="https://github.com/user-attachments/assets/e9a6c3eb-4f0d-4be1-aa0d-0a5378465648" />
 
 ## Installation
 
